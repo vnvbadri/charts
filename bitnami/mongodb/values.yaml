@@ -218,7 +218,7 @@ labels: {}
 ## Number of MongoDB replicas to deploy.
 ## Ignored when mongodb.architecture=standalone
 ##
-replicaCount: 2
+replicaCount: 3
 
 ## StrategyType for MongoDB statefulset
 ## It can be set to RollingUpdate or Recreate by default.
@@ -786,7 +786,7 @@ volumePermissions:
 ## Prometheus Exporter / Metrics
 ##
 metrics:
-  enabled: true
+  enabled: false
   ## Bitnami MongoDB Promtheus Exporter image
   ## ref: https://hub.docker.com/r/bitnami/mongodb-exporter/tags/
   ##
