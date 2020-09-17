@@ -2,13 +2,14 @@
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
 ## Current available global Docker image parameters: imageRegistry and imagePullSecrets
 ##
-# global:
+global:
 #   imageRegistry: myRegistryName
 #   imagePullSecrets:
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
 ## Override the namespace for resource deployed by the chart, but can itself be overridden by the local namespaceOverride
 #   namespaceOverride: my-global-namespace
+  namespaceOverride: values
 
 image:
   ## Bitnami MongoDB registry
@@ -56,7 +57,7 @@ clusterDomain: cluster.local
 
 ## MongoDB architecture. Allowed values: standalone or replicaset
 ##
-architecture: standalone
+architecture: replicaset
 
 ## Use StatefulSet instead of Deployment when deploying standalone
 ##
@@ -360,7 +361,7 @@ extraVolumes: []
 ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 ##
 pdb:
-  create: false
+  create: true
   ## Min number of pods that must still be available after the eviction
   ##
   minAvailable: 1
@@ -785,7 +786,7 @@ volumePermissions:
 ## Prometheus Exporter / Metrics
 ##
 metrics:
-  enabled: false
+  enabled: true
   ## Bitnami MongoDB Promtheus Exporter image
   ## ref: https://hub.docker.com/r/bitnami/mongodb-exporter/tags/
   ##
