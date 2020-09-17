@@ -48,7 +48,7 @@ image:
 
 ## Kubernetes Cluster Domain
 ##
-clusterDomain: cluster.local
+clusterDomain: bighaat.cf
 
 ## Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
@@ -219,6 +219,12 @@ labels: {}
 ## Ignored when mongodb.architecture=standalone
 ##
 replicaCount: 3
+
+#adding external DNS
+dnsPolicy: None
+dnsConfig:
+  nameservers:
+    - 8.8.8.8
 
 ## StrategyType for MongoDB statefulset
 ## It can be set to RollingUpdate or Recreate by default.
